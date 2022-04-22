@@ -5,7 +5,7 @@ const $date = document.getElementById('date')
 const $info = document.getElementById('info')
 const $favorites = document.getElementById('favorites')
 const $btn = document.getElementById('btn')
-
+const $hdimg = document.getElementById('hdimg')
 // create a content data arry
 // each content will be the new search
 
@@ -27,25 +27,45 @@ $form.addEventListener('submit', async function(e) {
                     <h2 class="title mb-3">${data.title}</h2>
                     <em >${data.date}</em><br>
                     <p>${data.explanation}</p>
+                    <br>
                     <button id="save" class="btn btn-primary" type="submit">Save to Favorites</button>
                 </div>`
-                
+
                 const $infoImg = document.getElementById('infoImg')
-                const $modal = document.getElementsByClassName("modal")
-                // Get the <span> element that closes the modal
-                const $close = document.getElementsByClassName("close")[0];
 
-                // When the user clicks on <span> (x), close the modal
-                $close.addEventListener('click', function() { 
-                    $modal.style.display = "none";
+                $infoImg.addEventListener('click', function(){
+                    $zoomImg.style.display = 'block';
+                })
+            
+
+                document.querySelectorAll('zoomImage').forEach(image => {
+                    image.onclick = () => {
+                        zoomImg.style.display = 'block';
+                        document.querySelector('zoomImg img').src = image.getAttribute('src');
+
+                    }
                 })
 
-                $infoImg.addEventListener('click',function(){
-                    $modal.style.display = 'block'
-                    img.src = data.hdurl
+                document.getElementsByClassName('close').onclick = () =>{
+                    document.querySelector('zoomImg').style.display = 'none';
+                }
+
+                // const $modalImg = document.getElementById('modalImg')
+                // const $modal = document.getElementsByClassName("modal")
+                // // Get the <span> element that closes the modal
+                // const $close = document.getElementsByClassName("close")[0];
+
+                // // When the user clicks on <span> (x), close the modal
+                // $close.addEventListener('click', function() { 
+                //     $modal.style.display = "none";
+                // })
+
+                // $modalImg.addEventListener('click',function(){
+                //     $modal.style.display = 'block'
+                //     img.src = data.hdurl
 
 
-                })
+                // })
     //     $favorites.innerHTML = `
     //     <div class="list-group-item d-flex align-items-center p-3 mb-3">
     //     <div class="square" style="background-image: ${data.hdurl}; "></div>
