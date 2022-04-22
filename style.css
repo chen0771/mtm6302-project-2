@@ -1,14 +1,11 @@
-/* .square {
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
-    border-radius: 2px;
-    
-} */
 
-/* Basic fonts & display style*/
+#savedImg{
+    width: 150px;
+    height: 150px;
+    margin-right: 80px;
+    border-radius: 2px;
+}
   
-  /* Style the Image Used to Trigger the Modal */
   #infoImg {
      border-radius: 5px;
      cursor: pointer;
@@ -17,26 +14,27 @@
    
    #infoImg:hover {opacity: 0.7;}
    
-   #zoomImg{
+   .container .zoomImg {
        position: fixed;
-       top: 0; left: 0;
-       background: rgba(0,0,0,0.9);
+       background-color: rgba(0,0,0,0.9);
        width: 70%;
+       top: 50%;
        z-index: 100;
-       display: none;
    }
 
-   .zoomImg span{
+   .container .zoomImg span{
     position: absolute;
-    top: 0; right: 10px;
+    right: 0px;
+    color: #000;
     font-size: 60px;
     font-weight: bolder;
-    color: #fff;
     cursor: pointer;
     z-index: 100;
+    display: none;
+    
    }
 
-   #hdimg {
+   .container .zoomImg img{
        position: absolute;
        top: 50%; left: 50%;
        transform: translate(-50%, -50%);
@@ -44,10 +42,11 @@
        border-radius: 5px;
        width: 750px;
        object-fit: cover;
+       display: none;
    }
 
    @media  (max-width:768px) {
-    #hdimg {
+    .container .zoomImg img{
            width:95%;
        }
        

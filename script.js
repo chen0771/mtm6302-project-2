@@ -22,7 +22,7 @@ $form.addEventListener('submit', async function(e) {
             console.log(data)
 
             $info.innerHTML = `
-            <img id="infoImg" src="${data.hdurl}" alt="" class="image col-4 img-fluid flex-row mb-3">
+            <img id="infoImg" src="${data.hdurl}" alt="" class="infoImg col-4 img-fluid flex-row mb-3">
                 <div class="col-8">
                     <h2 class="title mb-3">${data.title}</h2>
                     <em >${data.date}</em><br>
@@ -33,21 +33,22 @@ $form.addEventListener('submit', async function(e) {
 
                 const $infoImg = document.getElementById('infoImg')
 
-                $infoImg.addEventListener('click', function(){
-                    $zoomImg.style.display = 'block';
-                })
+                // $infoImg.addEventListener('click', function(){
+                //     $infoImg.style.display = 'block';
+                // })
             
 
-                document.querySelectorAll('zoomImage').forEach(image => {
+                document.querySelectorAll('.info img').forEach(image => {
                     image.onclick = () => {
-                        zoomImg.style.display = 'block';
-                        document.querySelector('zoomImg img').src = image.getAttribute('src');
-
+                        document.querySelector('.zoomImg img').style.display = 'block';
+                        document.querySelector('.zoomImg span').style.display = 'block';
+                        document.querySelector('.zoomImg img').src = image.getAttribute('src')
                     }
                 })
 
-                document.getElementsByClassName('close').onclick = () =>{
-                    document.querySelector('zoomImg').style.display = 'none';
+                document.querySelector('.zoomImg span').onclick = () =>{
+                    document.querySelector('.zoomImg img').style.display = 'none';
+                    document.querySelector('.zoomImg span').style.display = 'none';
                 }
 
                 // const $modalImg = document.getElementById('modalImg')
@@ -66,17 +67,17 @@ $form.addEventListener('submit', async function(e) {
 
 
                 // })
-    //     $favorites.innerHTML = `
-    //     <div class="list-group-item d-flex align-items-center p-3 mb-3">
-    //     <div class="square" style="background-image: ${data.hdurl}; "></div>
-    //     <div class="me-auto">
-    //         <p>
-    //             <strong>${data.hdurl}</strong><br>
-    //             <em>${data.explanation}</em>
-    //         </p>
-    //     </div>
-    //     <button class="btn btn-close"></button>
-    // </div>`
+        $favorites.innerHTML = `
+        <div class="list-group-item d-flex align-items-center p-3 mb-3 row">
+            <img id="savedImg" src="${data.hdurl}" alt="" class="image col-4 flex-row ">
+            <div class="col-9">
+                
+                <h2 class="title mb-3">${data.title}</h2>
+                <em >${data.date}</em><br>
+                
+            </div>
+            <button class="btn btn-close col-2"></button>
+        </div>`
         })
         .catch(error =>{
             alert(`${error.name} - ${error.message}`)
