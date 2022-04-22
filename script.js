@@ -28,14 +28,11 @@ $form.addEventListener('submit', async function(e) {
                     <em >${data.date}</em><br>
                     <p>${data.explanation}</p>
                     <br>
-                    <button id="saveBtn" class="saveBtn btn-primary" type="submit">Save to Favorites</button>
+                    <button id="saveBtn" class="Btn btn-primary" type="submit">Save to Favorites</button>
                 </div>`
 
-                const $infoImg = document.getElementById('infoImg')
+                // const $infoImg = document.getElementById('infoImg')
 
-                // $infoImg.addEventListener('click', function(){
-                //     $infoImg.style.display = 'block';
-                // })
             
 
                 document.querySelectorAll('.info img').forEach(image => {
@@ -52,10 +49,11 @@ $form.addEventListener('submit', async function(e) {
                 }
 
                 localStorage.setItem('title',data.title)
-                localStorage.setItem('dt', data.date)
+                localStorage.setItem('date', data.date)
                 localStorage.setItem('image',data.url)
 
                 const $saveBtn = document.getElementById('saveBtn')
+
                 $saveBtn.addEventListener('click', function (e) {
                     e.preventDefault()
                     $favorites.innerHTML = `
@@ -67,23 +65,25 @@ $form.addEventListener('submit', async function(e) {
                         <em >${data.date}</em><br>
                 
                     </div>
-                    <button class="btn btn-close col-2"></button>
+                    <button id="closeBtn" class="closeBtn btn-close col-2"></button>
                     </div>
                     `
-                // $favorites.innerHTML = `
-                //     <div class="list-group-item d-flex align-items-center p-3 mb-3 row">
-                //      <img id="savedImg" src="${data.hdurl}" alt="" class="image col-4 flex-row ">
-                //     <div class="col-9">
-                
-                //         <h2 class="title mb-3">${data.title}</h2>
-                //         <em >${data.date}</em><br>
-                
-                //     </div>
-                //     <button class="btn btn-close col-2"></button>
-                //     </div>`
 
-                    deleteData()
+                    closeData()
                     remainData()
+
+                    function closeData(){
+                        const $closeBtn = document.getElementById('closeBtn')
+                            $closeBtn.addEventListener('click',function(){
+                            $favorites.style.display = 'none'
+                        })
+                    }
+                    
+                    function remainData(){
+                        $saveBtn.addEventListener('click', function(){
+                            $favorites.classList.remove('hidden')
+                        })
+                    }
                 } )
             } )
 
@@ -93,15 +93,3 @@ $form.addEventListener('submit', async function(e) {
         })
 })
 
-function deleteData(){
-    const $delete = document.getElementById('btnDelete')
-    $delete.addEventListener('click',function(){
-        $favorites.classList.add('hidden')
-    })
-}
-
-function remainData(){
-    $saveBtn.addEventListener('click', function(){
-        $favorites.classList.remove('hidden')
-    })
-}
