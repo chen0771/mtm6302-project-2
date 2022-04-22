@@ -16,7 +16,7 @@
    
    .container .zoomImg {
        position: fixed;
-       background-color: rgba(0,0,0,0.9);
+       background: rgba(0,0,0,0.9);
        width: 70%;
        top: 50%;
        z-index: 100;

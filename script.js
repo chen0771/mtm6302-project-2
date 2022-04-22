@@ -28,7 +28,7 @@ $form.addEventListener('submit', async function(e) {
                     <em >${data.date}</em><br>
                     <p>${data.explanation}</p>
                     <br>
-                    <button id="saveBtn" class="Btn btn-primary" type="submit">Save to Favorites</button>
+                    <button id="saveBtn" class="btn btn-primary" type="submit">Save to Favorites</button>
                 </div>`
 
                 // const $infoImg = document.getElementById('infoImg')
